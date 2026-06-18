@@ -116,7 +116,6 @@ img{display:block;max-width:100%}
 .gtile-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(255,45,107,.55) 0%,transparent 40%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:.9rem}
 .gtile:hover .gtile-ov{opacity:1}
 .gtile-ov span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
-.gtile.w2{grid-column:span 2;aspect-ratio:2/1}
 .gallery-cta{text-align:center;margin-top:2rem}
 
 /* ══ ARTISTS ══ */
@@ -259,7 +258,6 @@ img{display:block;max-width:100%}
   .hero-btns{flex-direction:column}
   .btn-p,.btn-o{width:100%;justify-content:center}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gtile.w2{grid-column:span 2;aspect-ratio:16/9}
   .styles-grid{grid-template-columns:1fr 1fr}
   .scard{aspect-ratio:3/4}
   .artists-grid{grid-template-columns:repeat(2,1fr)}
@@ -613,15 +611,15 @@ img{display:block;max-width:100%}
       <h2 data-pl="Nasze prace" data-ru="Наши работы">Nasze prace</h2>
     </div>
     <div class="gallery-grid">
-      <div class="gtile w2 rv">
-        <img src="img/port1.png" alt="Realizm - T-Rex" loading="lazy"/>
+      <div class="gtile rv" style="transition-delay:.00s">
+        <img src="img/port1.png" alt="Realizm" loading="lazy"/>
         <div class="gtile-ov"><span data-pl="Realizm" data-ru="Реализм">Realizm</span></div>
       </div>
-      <div class="gtile rv" style="transition-delay:.07s">
-        <img src="img/port2.jpg" alt="Grafika - Smok" loading="lazy"/>
+      <div class="gtile rv" style="transition-delay:.05s">
+        <img src="img/port2.jpg" alt="Grafika" loading="lazy"/>
         <div class="gtile-ov"><span data-pl="Grafika" data-ru="Графика">Grafika</span></div>
       </div>
-      <div class="gtile rv" style="transition-delay:.11s">
+      <div class="gtile rv" style="transition-delay:.10s">
         <img src="img/port3.jpg" alt="Blackwork" loading="lazy"/>
         <div class="gtile-ov"><span>Blackwork</span></div>
       </div>
@@ -629,13 +627,25 @@ img{display:block;max-width:100%}
         <img src="img/port4.png" alt="Florystyka" loading="lazy"/>
         <div class="gtile-ov"><span data-pl="Florystyka" data-ru="Флористика">Florystyka</span></div>
       </div>
-      <div class="gtile rv" style="transition-delay:.19s">
-        <img src="img/port5.jpg" alt="Realizm - Joker" loading="lazy"/>
+      <div class="gtile rv" style="transition-delay:.20s">
+        <img src="img/port5.jpg" alt="Portret" loading="lazy"/>
         <div class="gtile-ov"><span data-pl="Portret" data-ru="Портрет">Portret</span></div>
       </div>
-      <div class="gtile rv" style="transition-delay:.23s">
+      <div class="gtile rv" style="transition-delay:.25s">
         <img src="img/port6.jpg" alt="Fine Line" loading="lazy"/>
         <div class="gtile-ov"><span>Fine Line</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.30s">
+        <img src="img/port7.jpg" alt="Florystyka 2" loading="lazy"/>
+        <div class="gtile-ov"><span data-pl="Florystyka" data-ru="Флористика">Florystyka</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.35s">
+        <img src="img/port8.jpg" alt="Grafika 2" loading="lazy"/>
+        <div class="gtile-ov"><span data-pl="Grafika" data-ru="Графика">Grafika</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.40s">
+        <img src="img/port9.jpg" alt="Mandala" loading="lazy"/>
+        <div class="gtile-ov"><span>Mandala</span></div>
       </div>
     </div>
     <div class="gallery-cta rv" style="margin-top:2rem">
