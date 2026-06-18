@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NewKind Tattoo — Studio Tatuażu Białystok</title>
+<meta name="description" content="NewKind Tattoo — studio tatuażu w Białymstoku. Fine line, realizm, grafika, florystyka, Maori, piercing. Mówimy po polsku, rosyjsku i niemiecku."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#181818;--bg2:#1f1f1f;--bg3:#252525;
+  --pink:#ff2d6b;--pink-dim:rgba(255,45,107,.12);--pink-mid:rgba(255,45,107,.3);
+  --white:#fff;--grey:#b0b0b0;--grey2:#666;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,45,107,.22);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Space Grotesk',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--pink);color:#fff}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#303030;border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--pink)}
+img{display:block;max-width:100%}
+.lbl{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--pink)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 2rem}
+.sec{padding:6rem 0}
+.sec-alt{padding:6rem 0;background:var(--bg2)}
+.sec-head{margin-bottom:3rem}
+.sec-head h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:700;letter-spacing:-.025em;margin-top:.6rem;line-height:1.1}
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+
+/* ══ HEADER ══ */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:300;height:72px;display:flex;align-items:center;justify-content:center;padding:0;border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+.hdr-in{max-width:1140px;width:100%;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+#hdr.stuck{background:rgba(24,24,24,.95);backdrop-filter:blur(16px);border-color:var(--border)}
+.hdr-logo{height:56px;width:auto}
+.hdr-nav{display:flex;align-items:center;gap:1.6rem;list-style:none}
+.hdr-nav a{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color .25s}
+.hdr-nav a:hover{color:var(--white)}
+.hdr-r{display:flex;align-items:center;gap:.8rem}
+.lang{display:flex;background:rgba(255,255,255,.06);border-radius:100px;padding:3px;gap:2px}
+.lang-btn{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;background:transparent;color:var(--grey);padding:5px 12px;border-radius:100px;cursor:pointer;transition:all .25s}
+.lang-btn.on{background:var(--pink);color:#fff}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;align-items:center}
+.burger span{display:block;width:20px;height:1.5px;background:var(--grey);transition:all .3s;border-radius:2px}
+.mob{display:none;position:fixed;top:72px;left:0;right:0;z-index:299;background:rgba(24,24,24,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.2rem 2rem 1.8rem;flex-direction:column;gap:.2rem}
+.mob.open{display:flex}
+.mob a{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);text-decoration:none;padding:.7rem 0;border-bottom:1px solid var(--border);transition:color .25s}
+.mob a:last-child{border:none}
+.mob a:hover{color:var(--pink)}
+
+/* ══ BTNS ══ */
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--pink);color:#fff;padding:14px 28px;border-radius:3px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s;white-space:nowrap}
+.btn-p:hover{background:#e0204f;transform:translateY(-2px)}
+.btn-p svg{width:15px;height:15px;flex-shrink:0}
+.btn-o{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--white);padding:14px 28px;border-radius:3px;border:1.5px solid var(--border);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:border-color .25s,color .25s,transform .2s;white-space:nowrap}
+.btn-o:hover{border-color:var(--pink);color:var(--pink);transform:translateY(-2px)}
+
+/* ══ HERO ══ */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-blob{position:absolute;width:560px;height:560px;background:radial-gradient(circle,rgba(255,45,107,.18) 0%,transparent 70%);top:-100px;right:-80px;border-radius:50%;animation:blob 8s ease-in-out infinite alternate;pointer-events:none}
+@keyframes blob{from{transform:translate(0,0) scale(1)}to{transform:translate(-50px,55px) scale(1.12)}}
+.hero-blob2{position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(255,45,107,.08) 0%,transparent 70%);bottom:-60px;left:10%;border-radius:50%;animation:blob 11s ease-in-out infinite alternate-reverse;pointer-events:none}
+.hero-inner{max-width:1140px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--pink-dim);border:1px solid var(--border2);padding:5px 14px;border-radius:100px;margin-bottom:1.8rem;opacity:0;animation:up .8s .2s forwards}
+.dot{width:6px;height:6px;background:var(--pink);border-radius:50%;flex-shrink:0;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.8rem,10vw,7.5rem);line-height:.9;letter-spacing:-.03em;margin-bottom:1.6rem;opacity:0;animation:up .9s .35s forwards}
+.hero-h1 em{font-style:normal;color:var(--pink)}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--grey);line-height:1.8;max-width:500px;margin-bottom:2.5rem;font-weight:300;opacity:0;animation:up .9s .5s forwards}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:3rem;opacity:0;animation:up .9s .65s forwards}
+.hero-langs{display:flex;align-items:center;flex-wrap:wrap;gap:.8rem;opacity:0;animation:up .9s .8s forwards}
+.flag-b{display:inline-flex;align-items:center;gap:.35rem;font-size:12px;font-weight:500;color:var(--grey);background:rgba(255,255,255,.05);padding:4px 10px;border-radius:100px}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero-scroll{position:absolute;bottom:2rem;left:2rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;z-index:1}
+.s-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--pink),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.6}50%{opacity:1;transform:scaleY(.8)}}
+.s-txt{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey2);writing-mode:vertical-lr;transform:rotate(180deg)}
+
+/* ══ MARQUEE ══ */
+.mq{background:var(--pink);padding:.7rem 0;overflow:hidden;white-space:nowrap}
+.mq-inner{display:inline-flex;animation:mq 20s linear infinite}
+.mq-inner:hover{animation-play-state:paused}
+.mq-item{font-family:'Unbounded',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;padding:0 1.8rem}
+.mq-dot{color:rgba(255,255,255,.5);margin:0 .3rem}
+
+/* ══ STATS ══ */
+#stats{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 2rem}
+.stats-row{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.stat-n{font-family:'Unbounded',sans-serif;font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;display:block;line-height:1}
+.stat-n b{color:var(--pink);font-weight:inherit}
+.stat-l{font-size:10px;color:var(--grey);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem;display:block}
+
+/* ══ ABOUT ══ */
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:4.5rem;align-items:center}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.about-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--pink);padding:1rem 1.2rem;font-family:'Unbounded',sans-serif;font-size:.62rem;font-weight:700;line-height:1.5;text-transform:uppercase;max-width:155px}
+.about-h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.1;margin:.6rem 0 1.4rem;letter-spacing:-.025em}
+.about-h2 em{font-style:normal;color:var(--pink)}
+.about-p{font-size:.97rem;color:var(--grey);line-height:1.85;margin-bottom:1.1rem;font-weight:300}
+.pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
+.pill{font-size:12px;font-weight:500;padding:5px 12px;border-radius:100px;border:1px solid var(--border);color:var(--grey);cursor:default;transition:border-color .25s,color .25s}
+.pill:hover{border-color:var(--pink);color:var(--pink)}
+
+/* ══ GALLERY ══ */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.gtile{position:relative;overflow:hidden;aspect-ratio:1/1;background:var(--bg3);border-radius:2px}
+.gtile img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1),filter .4s;filter:grayscale(20%)}
+.gtile:hover img{transform:scale(1.06);filter:grayscale(0%)}
+.gtile-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(255,45,107,.55) 0%,transparent 40%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:.9rem}
+.gtile:hover .gtile-ov{opacity:1}
+.gtile-ov span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.gtile.w2{grid-column:span 2;aspect-ratio:2/1}
+.gallery-cta{text-align:center;margin-top:2rem}
+
+/* ══ ARTISTS ══ */
+.artists-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.acard{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--bg3);border-radius:2px;cursor:default}
+.acard img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%) saturate(0.9);transition:filter .5s,transform .6s cubic-bezier(.22,1,.36,1);mix-blend-mode:normal}
+.acard:hover img{filter:grayscale(0%) saturate(0.65) brightness(1.02);transform:scale(1.04)}
+.acard-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.1) 55%,transparent 100%)}
+.acard-info{position:absolute;bottom:0;left:0;right:0;padding:1.4rem 1.2rem}
+.acard-name{font-family:'Unbounded',sans-serif;font-size:.82rem;font-weight:700;display:block;margin-bottom:.3rem}
+.acard-style{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.06em}
+.acard-ig{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-size:11px;color:var(--pink);font-weight:600;text-decoration:none;opacity:0;transition:opacity .3s}
+.acard:hover .acard-ig{opacity:1}
+.acard-ig svg{width:12px;height:12px}
+
+
+/* ══ ATMOSPHERE ══ */
+.atmo-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:5px}
+.atmo-tile{position:relative;overflow:hidden;border-radius:2px}
+.atmo-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1);display:block}
+.atmo-tile:hover img{transform:scale(1.04)}
+.atmo-tile.tall{grid-row:span 2}
+.atmo-tile.tall img{height:100%;min-height:400px}
+.atmo-tile.sq img{aspect-ratio:4/3}
+.atmo-award{position:absolute;bottom:1rem;right:1rem;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;border-radius:2px}
+.atmo-award-icon{font-size:1.2rem;line-height:1}
+.atmo-award-txt{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);line-height:1.3}
+.atmo-award-txt span{display:block;color:var(--pink);font-size:10px;letter-spacing:.1em}
+
+/* ══ FULL-WIDTH BANNER ══ */
+.fw-banner{position:relative;height:340px;overflow:hidden}
+.fw-banner img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.fw-banner-txt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;text-align:center;padding:2rem}
+.fw-banner-txt h3{font-family:'Unbounded',sans-serif;font-size:clamp(1.4rem,3vw,2.4rem);font-weight:900;letter-spacing:-.02em}
+.fw-banner-txt h3 em{font-style:normal;color:var(--pink)}
+
+/* ══ STYLES PHOTO GRID ══ */
+.styles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.scard{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:2px;cursor:default}
+.scard img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%) brightness(1);transition:filter .5s,transform .6s cubic-bezier(.22,1,.36,1)}
+.scard:hover img{filter:grayscale(0%) brightness(1.05);transform:scale(1.04)}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .75s cubic-bezier(.22,1,.36,1);z-index:2}
+.scard:hover::before{transform:scaleX(1)}
+.scard-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35) 0%,transparent 50%)}
+.scard-body{position:absolute;bottom:0;left:0;right:0;padding:1.4rem 1.4rem 1.6rem;z-index:1;background:linear-gradient(to top,rgba(15,15,15,.88) 0%,rgba(15,15,15,.6) 60%,transparent 100%);transition:background .3s}
+.scard-num{display:none}
+.scard-name{font-family:'Unbounded',sans-serif;font-size:1rem;font-weight:700;display:block;margin-bottom:.6rem;letter-spacing:-.01em}
+.scard-desc{font-size:13px;color:rgba(255,255,255,.9);line-height:1.65;max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .35s;opacity:0}
+.scard:hover .scard-desc{max-height:100px;opacity:1}
+
+/* ══ REVIEWS ══ */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2.5rem}
+.rcard{background:var(--bg2);padding:2rem;display:flex;flex-direction:column}
+.rcard-stars{color:var(--pink);font-size:13px;letter-spacing:2px;margin-bottom:1rem}
+.rcard-text{font-size:.97rem;line-height:1.75;color:var(--white);font-weight:300;flex:1}
+.rcard-author{margin-top:1.2rem;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--grey2)}
+
+/* ══ FAQ + HOW ══ */
+.fh-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.how-steps{display:flex;flex-direction:column;gap:0}
+.how-step{display:flex;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.how-step:first-child{border-top:1px solid var(--border)}
+.how-num{font-family:'Unbounded',sans-serif;font-size:2rem;font-weight:900;color:var(--pink);line-height:1;flex-shrink:0;width:48px}
+.how-title{font-family:'Unbounded',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:.5rem}
+.how-desc{font-size:13px;color:var(--grey);line-height:1.7;font-weight:300}
+.faq-list{display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;text-align:left;cursor:pointer;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:500;transition:color .25s}
+.faq-q:hover{color:var(--pink)}
+.faq-icon{flex-shrink:0;width:18px;height:18px;position:relative}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:currentColor;border-radius:2px}
+.faq-icon::before{width:12px;height:1.5px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-icon::after{width:1.5px;height:12px;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .3s,opacity .3s}
+.faq-item.open .faq-icon::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+.faq-a p{padding:0 0 1.2rem;font-size:.93rem;color:var(--grey);line-height:1.8;font-weight:300;max-width:460px}
+
+/* ══ CONTACT ══ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;letter-spacing:-.025em;margin:.6rem 0 2rem}
+.clinks{display:flex;flex-direction:column}
+.clink{display:flex;align-items:center;gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:all .25s}
+.clink:first-child{border-top:1px solid var(--border)}
+.ci{width:16px;height:16px;color:var(--pink);flex-shrink:0}
+.cl-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey2);display:block;margin-bottom:2px}
+.cl-val{font-size:14px;font-weight:500;color:var(--white);display:block;transition:color .25s}
+.clink:hover .cl-val{color:var(--pink)}
+.cl-arr{margin-left:auto;color:var(--grey2);font-size:1rem;transition:transform .25s,color .25s}
+.clink:hover .cl-arr{transform:translateX(4px);color:var(--pink)}
+.contact-cta{margin-top:2rem;display:inline-flex;align-items:center;gap:.6rem;background:var(--pink);color:#fff;padding:15px 32px;border-radius:3px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s}
+.contact-cta:hover{background:#e0204f;transform:translateY(-2px)}
+.contact-cta svg{width:16px;height:16px}
+.map-box{border-radius:2px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3}
+.map-box iframe{width:100%;height:100%;border:0;filter:grayscale(70%) contrast(1.1) brightness(.85);transition:filter .4s}
+.map-box:hover iframe{filter:grayscale(20%)}
+
+/* ══ FOOTER ══ */
+#footer{padding:2.5rem 2rem;border-top:1px solid var(--border)}
+.foot-in{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.foot-logo{height:52px;opacity:.85}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;transition:color .25s}
+.foot-links a:hover{color:var(--white)}
+.foot-copy{font-size:11px;color:var(--grey)}
+
+/* ══ STICKY WA ══ */
+#wa{position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;width:52px;height:52px;background:var(--pink);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,45,107,.4);text-decoration:none;transition:transform .25s,box-shadow .25s}
+#wa:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(255,45,107,.55)}
+#wa svg{width:24px;height:24px;fill:#fff}
+.wa-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(255,45,107,.35);animation:wap 2s ease-in-out infinite}
+@keyframes wap{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){
+  .artists-grid{grid-template-columns:repeat(2,1fr)}
+  .acard{aspect-ratio:3/4}
+}
+@media(max-width:960px){
+  .hdr-nav{display:none}
+  .burger{display:flex}
+  .hdr-in{padding:0 2rem}
+  .mob{padding:1.2rem 2rem 1.8rem}
+  #stats{padding:2rem 2rem}
+  #footer{padding:2.5rem 2rem}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-img-wrap{max-width:400px}
+  .contact-grid{grid-template-columns:1fr}
+  .fh-grid{grid-template-columns:1fr;gap:3rem}
+  .styles-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .wrap{padding:0 2rem}
+  #hero{padding:7rem 2rem 5rem}
+}
+@media(max-width:640px){
+  .wrap{padding:0 1.2rem}
+  .sec,.sec-alt{padding:4.5rem 0}
+  #hero{padding:6.5rem 1.2rem 4rem}
+  .hero-h1{font-size:clamp(2.4rem,15vw,3.6rem)}
+  .hero-btns{flex-direction:column}
+  .btn-p,.btn-o{width:100%;justify-content:center}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gtile.w2{grid-column:span 2;aspect-ratio:16/9}
+  .styles-grid{grid-template-columns:1fr 1fr}
+  .scard{aspect-ratio:3/4}
+  .artists-grid{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .about-badge{right:0;font-size:.58rem;padding:.8rem 1rem}
+  #stats{padding:2rem 1.2rem}
+  #footer{padding:2rem 1.2rem}
+  .mob{padding:1.2rem 1.2rem 1.8rem}
+  .fw-banner{height:240px}
+  .foot-in{flex-direction:column;text-align:center}
+  .foot-links{justify-content:center}
+  #wa{bottom:1rem;right:1rem;width:48px;height:48px}
+  .hero-scroll{display:none}
+}
+@media(max-width:420px){
+  .styles-grid{grid-template-columns:1fr}
+  .artists-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY WA -->
+<a id="wa" href="https://wa.me/48513712630" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <div class="wa-ring"></div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-in">
+  <a href="#hero"><img src="https://www.newkindtattoo.pl/wp-content/uploads/2025/08/cropped-LOGObialy.png" alt="NewKind Tattoo" class="hdr-logo"/></a>
+  <nav><ul class="hdr-nav">
+    <li><a href="#about"   data-pl="O nas"    data-ru="О нас"    onclick="go(event,'about')">O nas</a></li>
+    <li><a href="#atmosphere" data-pl="Studio" data-ru="Студия"  onclick="go(event,'atmosphere')">Studio</a></li>
+    <li><a href="#styles"  data-pl="Style"    data-ru="Стили"    onclick="go(event,'styles')">Style</a></li>
+    <li><a href="#gallery" data-pl="Galeria"  data-ru="Галерея"  onclick="go(event,'gallery')">Galeria</a></li>
+    <li><a href="#artists" data-pl="Artyści"  data-ru="Мастера"  onclick="go(event,'artists')">Artyści</a></li>
+    <li><a href="#faq"     data-pl="FAQ"      data-ru="FAQ"      onclick="go(event,'faq')">FAQ</a></li>
+    <li><a href="#contact" data-pl="Kontakt"  data-ru="Контакты" onclick="go(event,'contact')">Kontakt</a></li>
+  </ul></nav>
+  <div class="hdr-r">
+    <div class="lang">
+      <button class="lang-btn on" onclick="setLang('pl')">PL</button>
+      <button class="lang-btn"    onclick="setLang('ru')">RU</button>
+    </div>
+    <button class="burger" id="brg" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+</header>
+<nav class="mob" id="mob">
+  <a href="#about"   data-pl="O nas"    data-ru="О нас"    onclick="go(event,'about');toggleMob()">O nas</a>
+  <a href="#atmosphere" data-pl="Studio" data-ru="Студия"  onclick="go(event,'atmosphere');toggleMob()">Studio</a>
+  <a href="#styles"  data-pl="Style"    data-ru="Стили"    onclick="go(event,'styles');toggleMob()">Style</a>
+  <a href="#gallery" data-pl="Galeria"  data-ru="Галерея"  onclick="go(event,'gallery');toggleMob()">Galeria</a>
+  <a href="#artists" data-pl="Artyści"  data-ru="Мастера"  onclick="go(event,'artists');toggleMob()">Artyści</a>
+  <a href="#faq"     data-pl="FAQ"      data-ru="FAQ"      onclick="go(event,'faq');toggleMob()">FAQ</a>
+  <a href="#contact" data-pl="Kontakt"  data-ru="Контакты" onclick="go(event,'contact');toggleMob()">Kontakt</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span class="lbl" data-pl="Studio Tatuażu · Białystok" data-ru="Студия татуировки · Белосток">Studio Tatuażu · Białystok</span>
+    </div>
+    <h1 class="hero-h1">NEW<br><em>KIND</em><br>TATTOO</h1>
+    <p class="hero-sub" data-pl="Tatuaże z charakterem — tworzone z pasją i precyzją. Każdy projekt to indywidualna historia, stworzona specjalnie dla Ciebie." data-ru="Татуировки с характером — создаём с страстью и точностью. Каждый проект — индивидуальная история, созданная специально для тебя.">Tatuaże z charakterem — tworzone z pasją i precyzją. Każdy projekt to indywidualna historia, stworzona specjalnie dla Ciebie.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/48513712630" target="_blank" rel="noopener" class="btn-p">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-pl="Zarezerwuj wizytę" data-ru="Записаться">Zarezerwuj wizytę</span>
+      </a>
+      <a href="#gallery" class="btn-o" onclick="go(event,'gallery')">
+        <span data-pl="Zobacz prace →" data-ru="Смотреть работы →">Zobacz prace →</span>
+      </a>
+    </div>
+    <div class="hero-langs">
+      <span class="lbl" data-pl="Rozmawiamy:" data-ru="Говорим:">Rozmawiamy:</span>
+      <span class="flag-b">🇵🇱 <span data-pl="Polski" data-ru="Польский">Polski</span></span>
+      <span class="flag-b">🇷🇺 <span data-pl="Rosyjski" data-ru="Русский">Rosyjski</span></span>
+      <span class="flag-b">🇩🇪 <span data-pl="Niemiecki" data-ru="Немецкий">Niemiecki</span></span>
+    </div>
+  </div>
+  <a href="#stats" class="hero-scroll" onclick="go(event,'stats')">
+    <div class="s-line"></div>
+    <span class="s-txt" data-pl="Scroll" data-ru="Вниз">Scroll</span>
+  </a>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-inner">
+    <span class="mq-item">Fine Line<span class="mq-dot">·</span></span>
+    <span class="mq-item">Micro-realism<span class="mq-dot">·</span></span>
+    <span class="mq-item">Florystyka<span class="mq-dot">·</span></span>
+    <span class="mq-item">Maori<span class="mq-dot">·</span></span>
+    <span class="mq-item">Grafika<span class="mq-dot">·</span></span>
+    <span class="mq-item">Realizm<span class="mq-dot">·</span></span>
+    <span class="mq-item">Piercing<span class="mq-dot">·</span></span>
+    <span class="mq-item">Białystok<span class="mq-dot">·</span></span>
+    <span class="mq-item">Fine Line<span class="mq-dot">·</span></span>
+    <span class="mq-item">Micro-realism<span class="mq-dot">·</span></span>
+    <span class="mq-item">Florystyka<span class="mq-dot">·</span></span>
+    <span class="mq-item">Maori<span class="mq-dot">·</span></span>
+    <span class="mq-item">Grafika<span class="mq-dot">·</span></span>
+    <span class="mq-item">Realizm<span class="mq-dot">·</span></span>
+    <span class="mq-item">Piercing<span class="mq-dot">·</span></span>
+    <span class="mq-item">Białystok<span class="mq-dot">·</span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-row rv">
+    <div class="stat"><span class="stat-n">6<b>+</b></span><span class="stat-l" data-pl="Stylów tatuażu" data-ru="Стилей">Stylów tatuażu</span></div>
+    <div class="stat"><span class="stat-n">4</span><span class="stat-l" data-pl="Artyści" data-ru="Мастера">Artyści</span></div>
+    <div class="stat"><span class="stat-n">3</span><span class="stat-l" data-pl="Języki obsługi" data-ru="Языка общения">Języki obsługi</span></div>
+    <div class="stat"><span class="stat-n">100<b>%</b></span><span class="stat-l" data-pl="Autorskie projekty" data-ru="Авторские проекты">Autorskie projekty</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img-wrap rv">
+        <img src="img/about.jpg" alt="NewKind Tattoo studio" class="about-img" loading="lazy"/>
+        <div class="about-badge" data-pl="Twoje ciało — twoja świątynia" data-ru="Твоё тело — твой храм">Twoje ciało — twoja świątynia</div>
+      </div>
+      <div class="rv" style="transition-delay:.12s">
+        <p class="lbl" data-pl="O nas" data-ru="О нас">O nas</p>
+        <h2 class="about-h2" data-pl="Studio tatuażu na <em>zupełnie nowym</em> poziomie" data-ru="Студия татуировки на <em>совершенно новом</em> уровне">Studio tatuażu na <em>zupełnie nowym</em> poziomie</h2>
+        <p class="about-p" data-pl="NewKind Tattoo to miejsce dla tych, którzy szukają czegoś więcej niż zwykłego tatuażu. Każdy projekt to indywidualna historia — tworzona specjalnie dla Ciebie, od pierwszego szkicu aż po gotowe dzieło." data-ru="NewKind Tattoo — место для тех, кто ищет нечто большее, чем обычную татуировку. Каждый проект — индивидуальная история, созданная специально для тебя — от первого эскиза до готовой работы.">NewKind Tattoo to miejsce dla tych, którzy szukają czegoś więcej niż zwykłego tatuażu. Każdy projekt to indywidualna historia — tworzona specjalnie dla Ciebie, od pierwszego szkicu aż po gotowe dzieło.</p>
+        <p class="about-p" data-pl="Specjalizujemy się w fine line, mikrorealizmie, grafice, realistyce, florystyce i wzorach Maori. Czterech doświadczonych artystów — jedna pasja do tatuażu." data-ru="Специализируемся на fine line, микрореализме, графике, реализме, флористике и узорах Маори. Четыре опытных художника — одна страсть к татуировке.">Specjalizujemy się w fine line, mikrorealizmie, grafice, realistyce, florystyce i wzorach Maori. Czterech doświadczonych artystów — jedna pasja do tatuażu.</p>
+        <div class="pills">
+          <span class="pill" data-pl="✓ Autorskie projekty" data-ru="✓ Авторские проекты">✓ Autorskie projekty</span>
+          <span class="pill" data-pl="✓ Sterylne warunki" data-ru="✓ Стерильность">✓ Sterylne warunki</span>
+          <span class="pill" data-pl="✓ 4 artyści" data-ru="✓ 4 мастера">✓ 4 artyści</span>
+          <span class="pill" data-pl="✓ Szkolenia i praktyki" data-ru="✓ Обучение">✓ Szkolenia i praktyki</span>
+          <span class="pill" data-pl="✓ Piercing" data-ru="✓ Пирсинг">✓ Piercing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ATMOSPHERE -->
+<section class="sec-alt" id="atmosphere">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="lbl" data-pl="Wnętrze" data-ru="Интерьер">Wnętrze</p>
+      <h2 data-pl="Atmosfera studia" data-ru="Атмосфера студии">Atmosfera studia</h2>
+    </div>
+    <div class="atmo-grid">
+      <!-- Tall left: кресла + граффити — самое сильное фото -->
+      <div class="atmo-tile tall rv">
+        <img src="img/atmo1.jpg" alt="NewKind Tattoo studio - stanowiska" loading="lazy"/>
+      </div>
+      <!-- Right top: зона ожидания с тотемом -->
+      <div class="atmo-tile sq rv" style="transition-delay:.08s">
+        <img src="img/atmo3.jpg" alt="NewKind Tattoo - strefa oczekiwania" loading="lazy"/>
+      </div>
+      <!-- Right bottom: два фото рядом -->
+      <div class="atmo-tile rv" style="transition-delay:.16s;display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+        <div style="position:relative;overflow:hidden;border-radius:2px">
+          <img src="img/atmo2.jpg" alt="NewKind Tattoo - dekoracje" loading="lazy" style="width:100%;height:100%;object-fit:cover;aspect-ratio:1/1"/>
+        </div>
+        <div style="position:relative;overflow:hidden;border-radius:2px">
+          <img src="img/atmo4.jpg" alt="NewKind Tattoo - nagroda Ink Alive" loading="lazy" style="width:100%;height:100%;object-fit:cover;aspect-ratio:1/1"/>
+          <div class="atmo-award">
+            <span class="atmo-award-icon">🏆</span>
+            <div class="atmo-award-txt">
+              Ink Alive Festival
+              <span data-pl="3. miejsce" data-ru="3-е место">3. miejsce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section class="sec-alt" id="styles">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="lbl" data-pl="Techniki" data-ru="Техники">Techniki</p>
+      <h2 data-pl="Nasze style" data-ru="Наши стили">Nasze style</h2>
+    </div>
+    <div class="styles-grid">
+      <div class="scard rv">
+        <img src="img/style_fine_line.webp" alt="Fine Line" loading="lazy"/>
+        <div class="scard-ov"></div>
+        <div class="scard-body">
+          <span class="scard-num">01</span>
+          <span class="scard-name">Fine Line</span>
+          <p class="scard-desc" data-pl="Cienkie, precyzyjne linie — subtelne motywy z wielkim znaczeniem. Minimalizm w najpiękniejszej formie." data-ru="Тонкие, точные линии — изящные мотивы с глубоким смыслом. Минимализм в самой красивой форме.">Cienkie, precyzyjne linie — subtelne motywy z wielkim znaczeniem. Minimalizm w najpiękniejszej formie.</p>
+        </div>
+      </div>
+      <div class="scard rv" style="transition-delay:.07s">
+        <img src="img/port5.jpg" alt="Micro-realism" loading="lazy"/>
+        <div class="scard-ov"></div>
+        <div class="scard-body">
+          <span class="scard-num">02</span>
+          <span class="scard-name">Micro-realism</span>
+          <p class="scard-desc" data-pl="Mikroskopijne detale z niesamowitą precyzją. Małe formaty, wielka głębia artystyczna." data-ru="Микроскопические детали с удивительной точностью. Маленький формат, большая художественная глубина.">Mikroskopijne detale z niesamowitą precyzją. Małe formaty, wielka głębia artystyczna.</p>
+        </div>
+      </div>
+      <div class="scard rv" style="transition-delay:.14s">
+        <img src="img/port2.jpg" alt="Florystyka" loading="lazy"/>
+        <div class="scard-ov"></div>
+        <div class="scard-body">
+          <span class="scard-num">03</span>
+          <span class="scard-name" data-pl="Florystyka" data-ru="Флористика">Florystyka</span>
+          <p class="scard-desc" data-pl="Botaniczne motywy, kwiaty, gałęzie — kompozycje idealnie dopasowane do anatomii ciała." data-ru="Ботанические мотивы, цветы, ветки — композиции, идеально подобранные под анатомию тела.">Botaniczne motywy, kwiaty, gałęzie — kompozycje idealnie dopasowane do anatomii ciała.</p>
+        </div>
+      </div>
+      <div class="scard rv" style="transition-delay:.07s">
+        <img src="img/port6.jpg" alt="Grafika & Realizm" loading="lazy"/>
+        <div class="scard-ov"></div>
+        <div class="scard-body">
+          <span class="scard-num">04</span>
+          <span class="scard-name" data-pl="Grafika & Realizm" data-ru="Графика & Реализм">Grafika & Realizm</span>
+          <p class="scard-desc" data-pl="Od geometrii po fotorealistyczne portrety. Pełna ekspresja artystyczna w czerni i szarości." data-ru="От геометрии до фотореалистичных портретов. Полная художественная экспрессия в чёрном и сером.">Od geometrii po fotorealistyczne portrety. Pełna ekspresja artystyczna w czerni i szarości.</p>
+        </div>
+      </div>
+      <div class="scard rv" style="transition-delay:.14s">
+        <img src="https://www.newkindtattoo.pl/wp-content/uploads/2025/08/IMG_9867-scaled.jpg" alt="Maori" loading="lazy"/>
+        <div class="scard-ov"></div>
+        <div class="scard-body">
+          <span class="scard-num">05</span>
+          <span class="scard-name" data-pl="Maori & Tribal" data-ru="Маори & Трайбл">Maori & Tribal</span>
+          <p class="scard-desc" data-pl="Tradycyjne wzory Oceanii — mocne, geometryczne kompozycje z głęboką symboliką kulturową." data-ru="Традиционные узоры Океании — мощные геометрические композиции с глубокой культурной символикой.">Tradycyjne wzory Oceanii — mocne, geometryczne kompozycje z głęboką symboliką kulturową.</p>
+        </div>
+      </div>
+      <div class="scard rv" style="transition-delay:.21s">
+        <img src="https://www.newkindtattoo.pl/wp-content/uploads/2025/08/IMG_9868-scaled.jpg" alt="Piercing" loading="lazy"/>
+        <div class="scard-ov"></div>
+        <div class="scard-body">
+          <span class="scard-num">06</span>
+          <span class="scard-name">Piercing</span>
+          <p class="scard-desc" data-pl="Profesjonalny piercing różnych lokalizacji. Sterylny sprzęt, bezpieczne warunki, certyfikowani artyści." data-ru="Профессиональный пирсинг разных локаций. Стерильное оборудование, безопасные условия, сертифицированные мастера.">Profesjonalny piercing różnych lokalizacji. Sterylny sprzęt, bezpieczne warunki, certyfikowani artyści.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTISTS -->
+<section class="sec" id="artists">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="lbl" data-pl="Zespół" data-ru="Команда">Zespół</p>
+      <h2 data-pl="Nasi artyści" data-ru="Наши мастера">Nasi artyści</h2>
+    </div>
+    <div class="artists-grid">
+
+      <!-- Tatiana -->
+      <div class="acard rv">
+        <img src="img/master_tatiana.jpg" alt="Tatiana" loading="lazy"/>
+        <div class="acard-ov"></div>
+        <div class="acard-info">
+          <span class="acard-name">Tatiana</span>
+          <span class="acard-style" data-pl="Właścicielka · Grafika · Realizm · Fine Line · Micro-realism" data-ru="Владелица · Графика · Реализм · Fine Line · Микрореализм">Właścicielka · Grafika · Realizm · Fine Line</span>
+          <a href="https://instagram.com/_ts_tattoo_" target="_blank" rel="noopener" class="acard-ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @_ts_tattoo_
+          </a>
+        </div>
+      </div>
+
+      <!-- Luba -->
+      <div class="acard rv" style="transition-delay:.08s">
+        <img src="img/master_luba.jpg" alt="Luba" loading="lazy"/>
+        <div class="acard-ov"></div>
+        <div class="acard-info">
+          <span class="acard-name">Luba</span>
+          <span class="acard-style" data-pl="Grafika · Tatuaże delikatne · Fine details" data-ru="Графика · Тонкие татуировки · Fine details">Grafika · Tatuaże delikatne · Fine details</span>
+          <a href="https://instagram.com/a.m.o.r_tattoo" target="_blank" rel="noopener" class="acard-ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @a.m.o.r_tattoo
+          </a>
+        </div>
+      </div>
+
+      <!-- Julia -->
+      <div class="acard rv" style="transition-delay:.16s">
+        <img src="img/master_julia.jpg" alt="Julia" loading="lazy"/>
+        <div class="acard-ov"></div>
+        <div class="acard-info">
+          <span class="acard-name">Julia</span>
+          <span class="acard-style" data-pl="Fine Line · Grafika · Dobre wibracje" data-ru="Fine Line · Графика · Хорошая энергия">Fine Line · Grafika · Dobre wibracje</span>
+          <a href="https://instagram.com/ju.tattooist" target="_blank" rel="noopener" class="acard-ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @ju.tattooist
+          </a>
+        </div>
+      </div>
+
+      <!-- Kasia -->
+      <div class="acard rv" style="transition-delay:.24s">
+        <img src="img/master_kasia.jpg" alt="Kasia" loading="lazy"/>
+        <div class="acard-ov"></div>
+        <div class="acard-info">
+          <span class="acard-name">Kasia</span>
+          <span class="acard-style" data-pl="Piercing · Spokojna ręka · Zero stresu" data-ru="Пирсинг · Спокойная рука · Ноль стресса">Piercing · Spokojna ręka · Zero stresu</span>
+          <a href="https://instagram.com/kissslota_piercing_" target="_blank" rel="noopener" class="acard-ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @kissslota_piercing_
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Team bio strip -->
+    <div style="margin-top:3rem;padding:2rem 2rem;background:var(--bg2);border-left:3px solid var(--pink);border-radius:2px" class="rv">
+      <p style="font-size:.97rem;color:var(--grey);line-height:1.85;font-weight:300;max-width:780px"
+         data-pl="Tworzymy zgrany zespół, który nie tylko tatuuje, ale też inspiruje i pokazuje, że tatuaż to coś więcej niż ozdoba — to część Ciebie."
+         data-ru="Мы — сплочённая команда, которая не просто наносит татуировки, но и вдохновляет. Татуировка — это нечто большее, чем украшение. Это часть тебя.">
+        Tworzymy zgrany zespół, który nie tylko tatuuje, ale też inspiruje i pokazuje, że tatuaż to coś więcej niż ozdoba — to część Ciebie.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FULL-WIDTH BANNER -->
+<div class="fw-banner">
+  <img src="img/banner_canvas.jpg" alt="NewKind Tattoo" loading="lazy"/>
+  <div class="fw-banner-txt rv">
+    <h3 data-pl="Twoje ciało to <em>płótno</em>" data-ru="Твоё тело — это <em>холст</em>">Twoje ciało to <em>płótno</em></h3>
+    <a href="https://wa.me/48513712630" target="_blank" rel="noopener" class="btn-p">
+      <span data-pl="Zarezerwuj wizytę" data-ru="Записаться">Zarezerwuj wizytę</span>
+    </a>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="sec-alt" id="gallery">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="lbl" data-pl="Portfolio" data-ru="Портфолио">Portfolio</p>
+      <h2 data-pl="Nasze prace" data-ru="Наши работы">Nasze prace</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gtile w2 rv">
+        <img src="img/port1.png" alt="Realizm - T-Rex" loading="lazy"/>
+        <div class="gtile-ov"><span data-pl="Realizm" data-ru="Реализм">Realizm</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.07s">
+        <img src="img/port2.jpg" alt="Grafika - Smok" loading="lazy"/>
+        <div class="gtile-ov"><span data-pl="Grafika" data-ru="Графика">Grafika</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.11s">
+        <img src="img/port3.jpg" alt="Blackwork" loading="lazy"/>
+        <div class="gtile-ov"><span>Blackwork</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.15s">
+        <img src="img/port4.png" alt="Florystyka" loading="lazy"/>
+        <div class="gtile-ov"><span data-pl="Florystyka" data-ru="Флористика">Florystyka</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.19s">
+        <img src="img/port5.jpg" alt="Realizm - Joker" loading="lazy"/>
+        <div class="gtile-ov"><span data-pl="Portret" data-ru="Портрет">Portret</span></div>
+      </div>
+      <div class="gtile rv" style="transition-delay:.23s">
+        <img src="img/port6.jpg" alt="Fine Line" loading="lazy"/>
+        <div class="gtile-ov"><span>Fine Line</span></div>
+      </div>
+    </div>
+    <div class="gallery-cta rv" style="margin-top:2rem">
+      <a href="https://instagram.com/newkindtattoo" target="_blank" rel="noopener" class="btn-o">
+        <span data-pl="Więcej na Instagramie @newkindtattoo →" data-ru="Больше в Instagram @newkindtattoo →">Więcej na Instagramie @newkindtattoo →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="lbl" data-pl="Klienci" data-ru="Клиенты">Klienci</p>
+      <h2 data-pl="Co mówią o nas" data-ru="Что говорят о нас">Co mówią o nas</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rcard rv"><div class="rcard-stars">★★★★★</div><p class="rcard-text" data-pl="Niesamowita precyzja i dbałość o każdy detal. Fine line dokładnie taki, jak chciałam — delikatny i bezbłędny. Od pierwszej chwili czułam się swobodnie." data-ru="Невероятная точность и внимание к деталям. Fine line именно такой, как я хотела — тонкий и безупречный. С первой минуты чувствовала себя комфортно.">Niesamowita precyzja i dbałość o każdy detal. Fine line dokładnie taki, jak chciałam — delikatny i bezbłędny. Od pierwszej chwili czułam się swobodnie.</p><p class="rcard-author" data-pl="— Klientka, NewKind Tattoo" data-ru="— Клиент, NewKind Tattoo">— Klientka, NewKind Tattoo</p></div>
+      <div class="rcard rv" style="transition-delay:.1s"><div class="rcard-stars">★★★★★</div><p class="rcard-text" data-pl="Profesjonalne podejście, sterylne warunki i świetna atmosfera. Artysta doskonale doradzał przy wyborze projektu. Zdecydowanie wrócę." data-ru="Профессиональный подход, стерильные условия и отличная атмосфера. Художник прекрасно помог с выбором проекта. Однозначно вернусь.">Profesjonalne podejście, sterylne warunki i świetna atmosfera. Artysta doskonale doradzał przy wyborze projektu. Zdecydowanie wrócę.</p><p class="rcard-author" data-pl="— Klient, NewKind Tattoo" data-ru="— Клиент, NewKind Tattoo">— Klient, NewKind Tattoo</p></div>
+      <div class="rcard rv" style="transition-delay:.2s"><div class="rcard-stars">★★★★★</div><p class="rcard-text" data-pl="Studio na zupełnie innym poziomie niż inne miejsca w Białymstoku. Autorskie projekty, własny styl, prawdziwa pasja. Polecam wszystkim." data-ru="Студия совсем другого уровня, чем другие места в Белостоке. Авторские проекты, собственный стиль, настоящая страсть. Рекомендую всем.">Studio na zupełnie innym poziomie niż inne miejsca w Białymstoku. Autorskie projekty, własny styl, prawdziwa pasja. Polecam wszystkim.</p><p class="rcard-author" data-pl="— Klient, NewKind Tattoo" data-ru="— Клиент, NewKind Tattoo">— Klient, NewKind Tattoo</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ + HOW -->
+<section class="sec-alt" id="faq">
+  <div class="wrap">
+    <div class="fh-grid">
+      <!-- HOW -->
+      <div class="rv">
+        <p class="lbl" data-pl="Jak to działa" data-ru="Как это работает">Jak to działa</p>
+        <h2 class="sec-head" style="margin-bottom:2rem" data-pl="3 kroki do tatuażu" data-ru="3 шага к татуировке">3 kroki do tatuażu</h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <span class="how-num">01</span>
+            <div>
+              <div class="how-title" data-pl="Napisz do nas" data-ru="Напиши нам">Napisz do nas</div>
+              <p class="how-desc" data-pl="WhatsApp lub Instagram — opowiedz o pomyśle. Nie musisz mieć gotowego projektu." data-ru="WhatsApp или Instagram — расскажи об идее. Готовый проект не нужен.">WhatsApp lub Instagram — opowiedz o pomyśle. Nie musisz mieć gotowego projektu.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <span class="how-num">02</span>
+            <div>
+              <div class="how-title" data-pl="Omawiamy projekt" data-ru="Обсуждаем проект">Omawiamy projekt</div>
+              <p class="how-desc" data-pl="Doprecyzowujemy szczegóły. Artysta tworzy autorski szkic dopasowany do Twojej wizji." data-ru="Уточняем детали. Художник создаёт авторский эскиз под твоё видение.">Doprecyzowujemy szczegóły. Artysta tworzy autorski szkic dopasowany do Twojej wizji.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <span class="how-num">03</span>
+            <div>
+              <div class="how-title" data-pl="Przychodź i tatuujesz" data-ru="Приходи — делаем тату">Przychodź i tatuujesz</div>
+              <p class="how-desc" data-pl="Sterylne warunki, komfortowa sesja. Po wszystkim — wskazówki pielęgnacji." data-ru="Стерильные условия, комфортный сеанс. После — инструкции по уходу.">Sterylne warunki, komfortowa sesja. Po wszystkim — wskazówki pielęgnacji.</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2rem">
+          <a href="https://wa.me/48513712630" target="_blank" rel="noopener" class="btn-p">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-pl="Zarezerwuj teraz" data-ru="Записаться сейчас">Zarezerwuj teraz</span>
+          </a>
+        </div>
+      </div>
+      <!-- FAQ -->
+      <div class="rv" style="transition-delay:.12s">
+        <p class="lbl">FAQ</p>
+        <h2 class="sec-head" style="margin-bottom:2rem" data-pl="Często pytacie" data-ru="Вас часто спрашивают">Często pytacie</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="faq(this)"><span data-pl="Czy tatuaż boli?" data-ru="Больно ли делать татуировку?">Czy tatuaż boli?</span><span class="faq-icon"></span></button>
+            <div class="faq-a"><p data-pl="Ból jest indywidualny — zależy od miejsca, progu bólowego i rozmiaru. Pracujemy spokojnie i dbamy o Twój komfort przez całą sesję." data-ru="Боль индивидуальна — зависит от места, болевого порога и размера. Работаем спокойно, заботимся о комфорте в течение всего сеанса.">Ból jest indywidualny — zależy od miejsca, progu bólowego i rozmiaru. Pracujemy spokojnie i dbamy o Twój komfort przez całą sesję.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="faq(this)"><span data-pl="Ile kosztuje tatuaż?" data-ru="Сколько стоит татуировка?">Ile kosztuje tatuaż?</span><span class="faq-icon"></span></button>
+            <div class="faq-a"><p data-pl="Cena zależy od wielkości, stylu i czasu pracy. Napisz do nas z opisem pomysłu — przygotujemy bezpłatną wycenę." data-ru="Цена зависит от размера, стиля и времени работы. Напиши нам с описанием идеи — подготовим бесплатную оценку.">Cena zależy od wielkości, stylu i czasu pracy. Napisz do nas z opisem pomysłu — przygotujemy bezpłatną wycenę.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="faq(this)"><span data-pl="Czy muszę mieć własny projekt?" data-ru="Нужен ли готовый проект?">Czy muszę mieć własny projekt?</span><span class="faq-icon"></span></button>
+            <div class="faq-a"><p data-pl="Nie! Wystarczy ogólny pomysł lub inspiracja. Artysta stworzy autorski projekt od podstaw, dopasowany do Twoich oczekiwań." data-ru="Нет! Достаточно общей идеи или вдохновения. Художник создаст авторский проект с нуля под твои ожидания.">Nie! Wystarczy ogólny pomysł lub inspiracja. Artysta stworzy autorski projekt od podstaw, dopasowany do Twoich oczekiwań.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="faq(this)"><span data-pl="Jak pielęgnować tatuaż?" data-ru="Как ухаживать за татуировкой?">Jak pielęgnować tatuaż?</span><span class="faq-icon"></span></button>
+            <div class="faq-a"><p data-pl="Po sesji dostajesz szczegółowe wskazówki. Ogólnie: czystość, specjalny krem, unikanie słońca przez 2–3 tygodnie. Gojenie zajmuje 2–4 tygodnie." data-ru="После сеанса получишь подробные инструкции. В целом: чистота, специальный крем, избегать солнца 2–3 недели. Заживление 2–4 недели.">Po sesji dostajesz szczegółowe wskazówki. Ogólnie: czystość, specjalny krem, unikanie słońca przez 2–3 tygodnie. Gojenie zajmuje 2–4 tygodnie.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="faq(this)"><span data-pl="Czy robicie tatuaże niepełnoletnim?" data-ru="Делаете ли тату несовершеннолетним?">Czy robicie tatuaże niepełnoletnim?</span><span class="faq-icon"></span></button>
+            <div class="faq-a"><p data-pl="Nie. Wyłącznie dla osób 18+. Wymagamy dokumentu tożsamości przed każdą sesją." data-ru="Нет. Исключительно для 18+. Перед каждым сеансом требуем документ, удостоверяющий личность.">Nie. Wyłącznie dla osób 18+. Wymagamy dokumentu tożsamości przed każdą sesją.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv">
+        <p class="lbl" data-pl="Umów się" data-ru="Запись">Umów się</p>
+        <h2 class="contact-h2" data-pl="Skontaktuj się z nami" data-ru="Свяжись с нами">Skontaktuj się z nami</h2>
+        <div class="clinks">
+          <div class="clink">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div><span class="cl-lbl" data-pl="Adres" data-ru="Адрес">Adres</span><span class="cl-val">ul. Zwycięstwa 8B, Białystok</span></div>
+          </div>
+          <a href="tel:+48513712630" class="clink">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div><span class="cl-lbl" data-pl="Telefon" data-ru="Телефон">Telefon</span><span class="cl-val">+48 513 712 630</span></div>
+            <span class="cl-arr">→</span>
+          </a>
+          <a href="https://wa.me/48513712630" target="_blank" rel="noopener" class="clink">
+            <svg class="ci" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <div><span class="cl-lbl">WhatsApp</span><span class="cl-val" data-pl="Napisz do nas" data-ru="Напиши нам">Napisz do nas</span></div>
+            <span class="cl-arr">→</span>
+          </a>
+          <a href="https://instagram.com/newkindtattoo" target="_blank" rel="noopener" class="clink">
+            <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            <div><span class="cl-lbl">Instagram</span><span class="cl-val">@newkindtattoo</span></div>
+            <span class="cl-arr">→</span>
+          </a>
+        </div>
+        <a href="https://wa.me/48513712630" target="_blank" rel="noopener" class="contact-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-pl="Zarezerwuj wizytę" data-ru="Записаться на сеанс">Zarezerwuj wizytę</span>
+        </a>
+      </div>
+      <div class="map-box rv" style="transition-delay:.15s">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2895.374402377017!2d23.13063397700171!3d53.1354581904814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ffd16d9307ba1%3A0x2cbc5ce77b953526!2sNewKind%20Tattoo%20-%20Studio%20Tatuażu%20Białystok!5e1!3m2!1spl!2spl!4v1753649941970!5m2!1spl!2spl" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="NewKind Tattoo"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="foot-in">
+    <img src="https://www.newkindtattoo.pl/wp-content/uploads/2025/08/cropped-LOGObialy.png" alt="NewKind Tattoo" class="foot-logo"/>
+    <div class="foot-links">
+      <a href="https://instagram.com/newkindtattoo" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/NewKindTattoo" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://wa.me/48513712630" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="tel:+48513712630">+48 513 712 630</a>
+    </div>
+    <p class="foot-copy">© 2025 NewKind Tattoo · Białystok</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>hdr.classList.toggle('stuck',scrollY>40),{passive:true});
+function go(e,id){e.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+const mob=document.getElementById('mob'),brg=document.getElementById('brg');
+let mo=false;
+function toggleMob(){
+  mo=!mo;mob.classList.toggle('open',mo);
+  const s=brg.querySelectorAll('span');
+  if(mo){s[0].style.transform='rotate(45deg) translate(4px,4px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-4px)'}
+  else{s.forEach(x=>{x.style.transform='';x.style.opacity=''})}
+}
+function setLang(l){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('on',b.textContent.trim().toLowerCase()===l));
+  document.querySelectorAll('[data-pl]').forEach(el=>{
+    const v=el.getAttribute('data-'+l);if(!v)return;
+    if(['H2','H3'].includes(el.tagName)&&v.includes('<em>')){el.innerHTML=v}
+    else{el.textContent=v}
+  });
+  document.documentElement.lang=l==='ru'?'ru':'pl';
+}
+function faq(btn){
+  const item=btn.closest('.faq-item');
+  const a=item.querySelector('.faq-a');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0'});
+  if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+}
+const io=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})
+},{threshold:0.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
