@@ -62,14 +62,14 @@ img{display:block;max-width:100%}
 .btn-o:hover{border-color:var(--pink);color:var(--pink);transform:translateY(-2px)}
 
 /* ══ HERO ══ */
-#hero{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:52svh}
+#hero{overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:55svh;position:relative}
 .hero-content{display:flex;flex-direction:column;justify-content:center;padding:5rem 2rem 3rem 2rem;position:relative;z-index:3;max-width:640px;margin-left:auto}
-.hero-img-wrap{position:relative;overflow:hidden}
-.hero-img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(20%) brightness(.8)}
-.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 35%)}
-.hero-blob{position:absolute;width:380px;height:380px;background:radial-gradient(circle,rgba(255,45,107,.15) 0%,transparent 70%);top:5%;left:20%;border-radius:50%;animation:blob 8s ease-in-out infinite alternate;pointer-events:none;z-index:2}
+.hero-img-wrap{overflow:hidden;position:relative;min-height:55svh}
+.hero-img-wrap img{width:100%;height:100%;min-height:55svh;object-fit:cover;object-position:center top;filter:grayscale(20%) brightness(.8);display:block}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#181818 0%,transparent 40%);pointer-events:none}
+.hero-blob{position:absolute;width:380px;height:380px;background:radial-gradient(circle,rgba(255,45,107,.15) 0%,transparent 70%);top:5%;left:5%;border-radius:50%;animation:blob 8s ease-in-out infinite alternate;pointer-events:none;z-index:1}
 @keyframes blob{from{transform:translate(0,0) scale(1)}to{transform:translate(-30px,30px) scale(1.1)}}
-.hero-blob2{position:absolute;width:220px;height:220px;background:radial-gradient(circle,rgba(255,45,107,.08) 0%,transparent 70%);bottom:5%;left:10%;border-radius:50%;animation:blob 11s ease-in-out infinite alternate-reverse;pointer-events:none;z-index:2}
+.hero-blob2{position:absolute;width:220px;height:220px;background:radial-gradient(circle,rgba(255,45,107,.08) 0%,transparent 70%);bottom:5%;left:3%;border-radius:50%;animation:blob 11s ease-in-out infinite alternate-reverse;pointer-events:none;z-index:1}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--pink-dim);border:1px solid var(--border2);padding:5px 14px;border-radius:100px;margin-bottom:1.8rem;opacity:0;animation:up .8s .2s forwards}
 .dot{width:6px;height:6px;background:var(--pink);border-radius:50%;flex-shrink:0;animation:blink 1.5s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -251,14 +251,16 @@ img{display:block;max-width:100%}
   .styles-grid{grid-template-columns:repeat(2,1fr)}
   .stats-row{grid-template-columns:repeat(2,1fr);gap:1.5rem}
   .wrap{padding:0 2rem}
-  #hero{grid-template-columns:1fr}
-  .hero-img-wrap{display:none}
-  .hero-content{padding:6rem 2rem 3rem;max-width:100%;margin:0}
+  #hero{grid-template-columns:1fr;position:relative;min-height:65svh}
+  .hero-img-wrap{position:absolute;inset:0;z-index:0;min-height:unset;display:block}
+  .hero-img-wrap img{filter:grayscale(30%) brightness(.4)}
+  .hero-img-wrap::after{background:linear-gradient(to bottom,rgba(24,24,24,.55) 0%,rgba(24,24,24,.88) 100%)}
+  .hero-content{padding:6rem 1.5rem 3rem;max-width:100%;margin:0;position:relative;z-index:2}
 }
 @media(max-width:640px){
   .wrap{padding:0 1.2rem}
   .sec,.sec-alt{padding:4.5rem 0}
-  #hero{padding:6.5rem 1.2rem 4rem}
+  #hero{min-height:65svh}
   .hero-h1{font-size:clamp(2.4rem,15vw,3.6rem)}
   .hero-btns{flex-direction:column}
   .btn-p,.btn-o{width:100%;justify-content:center}
@@ -276,7 +278,7 @@ img{display:block;max-width:100%}
   .foot-in{flex-direction:column;text-align:center}
   .foot-links{justify-content:center}
   #wa{bottom:1rem;right:1rem;width:48px;height:48px}
-  .hero-scroll{display:none}
+  .hero-scroll{position:absolute;bottom:2rem;left:2rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;z-index:4;display:none}
 }
 @media(max-width:420px){
   .styles-grid{grid-template-columns:1fr}
@@ -356,10 +358,6 @@ img{display:block;max-width:100%}
   <div class="hero-img-wrap">
     <img src="img/hero_tatiana.jpg" alt="NewKind Tattoo" loading="eager"/>
   </div>
-  <a href="#stats" class="hero-scroll" onclick="go(event,'stats')">
-    <div class="s-line"></div>
-    <span class="s-txt" data-pl="Scroll" data-ru="Вниз">Scroll</span>
-  </a>
 </section>
 
 <!-- MARQUEE -->
