@@ -12,9 +12,9 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#111111;--bg2:#181818;--bg3:#1f1f1f;
-  --pink:#ffffff;--pink-dim:rgba(255,255,255,.08);--pink-mid:rgba(255,255,255,.2);
+  --pink:#B8420A;--pink-dim:rgba(184,66,10,.14);--pink-mid:rgba(184,66,10,.3);
   --white:#ffffff;--grey:#c0c0c0;--grey2:#909090;
-  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.25);
+  --border:rgba(255,255,255,.08);--border2:rgba(184,66,10,.3);
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--white);font-family:'Space Grotesk',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:default}
@@ -45,7 +45,7 @@ img{display:block;max-width:100%}
 .hdr-r{display:flex;align-items:center;gap:.8rem}
 .lang{display:flex;background:rgba(255,255,255,.06);border-radius:100px;padding:3px;gap:2px}
 .lang-btn{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;background:transparent;color:var(--grey);padding:5px 12px;border-radius:100px;cursor:pointer;transition:all .25s}
-.lang-btn.on{background:var(--pink);color:#111}
+.lang-btn.on{background:var(--pink);color:#fff}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;align-items:center}
 .burger span{display:block;width:20px;height:1.5px;background:var(--grey);transition:all .3s;border-radius:2px}
 .mob{display:none;position:fixed;top:72px;left:0;right:0;z-index:299;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.2rem 2rem 1.8rem;flex-direction:column;gap:.2rem}
@@ -55,14 +55,14 @@ img{display:block;max-width:100%}
 .mob a:hover{color:var(--pink)}
 
 /* ══ BTNS ══ */
-.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--pink);color:#111;padding:14px 28px;border-radius:3px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s;white-space:nowrap}
-.btn-p:hover{background:#ffffff;transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,255,255,.2)}
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--pink);color:#fff;padding:14px 28px;border-radius:3px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s;white-space:nowrap}
+.btn-p:hover{background:#d44f0c;transform:translateY(-2px);box-shadow:0 6px 24px rgba(184,66,10,.5)}
 .btn-p svg{width:15px;height:15px;flex-shrink:0}
 .btn-o{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--white);padding:14px 28px;border-radius:3px;border:1.5px solid rgba(255,255,255,.18);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:border-color .25s,color .25s,transform .2s;white-space:nowrap}
-.btn-o:hover{border-color:#fff;color:#fff;transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,255,255,.1)}
+.btn-o:hover{border-color:#fff;color:#fff;transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,255,255,.18);background:rgba(255,255,255,.06)}
 
 /* ══ HERO ══ */
-#hero{overflow:hidden;position:relative;min-height:55svh;display:flex;align-items:center}
+#hero{overflow:hidden;position:relative;min-height:90svh;display:flex;align-items:center}
 .hero-content{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 3rem;position:relative;z-index:2;max-width:560px;background:linear-gradient(to right,rgba(10,10,10,.42) 0%,rgba(10,10,10,.2) 75%,transparent 100%);backdrop-filter:blur(3px);margin-left:calc(50vw - 610px)}
 .hero-img-wrap{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:grayscale(15%) brightness(.65);display:block}
@@ -70,8 +70,9 @@ img{display:block;max-width:100%}
 .hero-blob{position:absolute;width:380px;height:380px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);top:5%;left:5%;border-radius:50%;animation:blob 8s ease-in-out infinite alternate;pointer-events:none;z-index:1}
 @keyframes blob{from{transform:translate(0,0) scale(1)}to{transform:translate(-30px,30px) scale(1.1)}}
 .hero-blob2{position:absolute;width:220px;height:220px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);bottom:5%;left:3%;border-radius:50%;animation:blob 11s ease-in-out infinite alternate-reverse;pointer-events:none;z-index:1}
-.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--pink-dim);border:1px solid var(--border2);padding:5px 14px;border-radius:100px;margin-bottom:1.8rem;opacity:0;animation:up .8s .2s forwards}
-.dot{width:6px;height:6px;background:var(--pink);border-radius:50%;flex-shrink:0;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid rgba(255,255,255,.5);padding:5px 14px;border-radius:100px;margin-bottom:1.8rem;opacity:0;animation:up .8s .2s forwards;width:fit-content}
+.dot{width:6px;height:6px;background:#fff;border-radius:50%;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .hero-h1{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.2rem,5.5vw,5.2rem);line-height:.92;letter-spacing:-.03em;margin-bottom:1.4rem;opacity:0;animation:up .9s .35s forwards}
 .hero-h1 em{font-style:normal;color:var(--pink)}
@@ -89,8 +90,8 @@ img{display:block;max-width:100%}
 .mq{background:var(--pink);padding:.7rem 0;overflow:hidden;white-space:nowrap}
 .mq-inner{display:inline-flex;animation:mq 20s linear infinite}
 .mq-inner:hover{animation-play-state:paused}
-.mq-item{font-family:'Unbounded',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#111;padding:0 1.8rem}
-.mq-dot{color:rgba(0,0,0,.35);margin:0 .3rem}
+.mq-item{font-family:'Unbounded',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;padding:0 1.8rem}
+.mq-dot{color:rgba(255,255,255,.5);margin:0 .3rem}
 
 /* ══ STATS ══ */
 #stats{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 2rem}
@@ -103,9 +104,9 @@ img{display:block;max-width:100%}
 .about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:4.5rem;align-items:center}
 .about-img-wrap{position:relative}
 .about-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
-.about-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--pink);color:#111;padding:1rem 1.2rem;font-family:'Unbounded',sans-serif;font-size:.62rem;font-weight:700;line-height:1.5;text-transform:uppercase;max-width:155px}
+.about-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--pink);color:#fff;padding:1rem 1.2rem;font-family:'Unbounded',sans-serif;font-size:.62rem;font-weight:700;line-height:1.5;text-transform:uppercase;max-width:155px}
 .about-h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.1;margin:.6rem 0 1.4rem;letter-spacing:-.025em}
-.about-h2 em{font-style:normal;color:var(--pink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:#D4621A}
+.about-h2 em{font-style:normal;color:var(--pink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:#B8420A}
 .about-p{font-size:.97rem;color:var(--grey);line-height:1.85;margin-bottom:1.1rem;font-weight:300}
 .pills{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
 .pill{font-size:12px;font-weight:500;padding:5px 12px;border-radius:100px;border:1px solid var(--border);color:var(--grey);cursor:default;transition:border-color .25s,color .25s}
@@ -208,7 +209,7 @@ img{display:block;max-width:100%}
 .clink:hover .cl-val{color:var(--pink)}
 .cl-arr{margin-left:auto;color:var(--grey2);font-size:1rem;transition:transform .25s,color .25s}
 .clink:hover .cl-arr{transform:translateX(4px);color:var(--pink)}
-.contact-cta{margin-top:2rem;display:inline-flex;align-items:center;gap:.6rem;background:var(--pink);color:#111;padding:15px 32px;border-radius:3px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s}
+.contact-cta{margin-top:2rem;display:inline-flex;align-items:center;gap:.6rem;background:var(--pink);color:#fff;padding:15px 32px;border-radius:3px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s}
 .contact-cta:hover{background:#ffffff;transform:translateY(-2px);box-shadow:0 6px 24px rgba(255,255,255,.2)}
 .contact-cta svg{width:16px;height:16px}
 .map-box{border-radius:2px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3}
@@ -225,10 +226,10 @@ img{display:block;max-width:100%}
 .foot-copy{font-size:11px;color:var(--grey)}
 
 /* ══ STICKY WA ══ */
-#wa{position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;width:52px;height:52px;background:#D4621A;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(212,98,26,.4);text-decoration:none;transition:transform .25s,box-shadow .25s}
-#wa:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(212,98,26,.7)}
+#wa{position:fixed;bottom:2.5rem;right:1.5rem;z-index:400;width:52px;height:52px;background:#B8420A;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(184,66,10,.4);text-decoration:none;transition:transform .25s,box-shadow .25s}
+#wa:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(184,66,10,.7)}
 #wa svg{width:24px;height:24px;fill:#fff}
-.wa-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(212,98,26,.35);animation:wap 2s ease-in-out infinite}
+.wa-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(184,66,10,.35);animation:wap 2s ease-in-out infinite}
 @keyframes wap{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -251,15 +252,16 @@ img{display:block;max-width:100%}
   .styles-grid{grid-template-columns:repeat(2,1fr)}
   .stats-row{grid-template-columns:repeat(2,1fr);gap:1.5rem}
   .wrap{padding:0 2rem}
-  #hero{min-height:70svh}
   .hero-content{padding:6rem 1.5rem 3rem;max-width:100%;margin-left:0}
   .hero-img-wrap::after{background:linear-gradient(to bottom,rgba(10,10,10,.3) 0%,rgba(10,10,10,.82) 70%)}
 }
 @media(max-width:640px){
   .wrap{padding:0 1.2rem}
   .sec,.sec-alt{padding:4.5rem 0}
-  #hero{min-height:65svh}
-  .hero-h1{font-size:clamp(1.6rem,10vw,2.8rem)}
+  .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid rgba(255,255,255,.5);padding:5px 14px;border-radius:100px;margin-bottom:1.8rem;opacity:0;animation:up .8s .2s forwards;width:fit-content}
+.dot{width:6px;height:6px;background:#fff;border-radius:50%;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-size:clamp(1.6rem,10vw,2.8rem)}
   .hero-btns{flex-direction:column}
   .btn-p,.btn-o{width:100%;justify-content:center}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
@@ -333,7 +335,7 @@ img{display:block;max-width:100%}
     <div class="hero-blob2"></div>
     <div class="hero-tag">
       <span class="dot"></span>
-      <span class="lbl" data-pl="Studio Tatuażu · Białystok" data-ru="Студия татуировки · Белосток">Studio Tatuażu · Białystok</span>
+      <span style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff" data-pl="Studio Tatuażu · Białystok" data-ru="Студия татуировки · Белосток">Studio Tatuażu · Białystok</span>
     </div>
     <h1 class="hero-h1">NEW<br><em>KIND</em><br>TATTOO</h1>
     <p class="hero-sub" data-pl="Tatuaże z charakterem — tworzone z pasją i precyzją. Każdy projekt to indywidualna historia, stworzona specjalnie dla Ciebie." data-ru="Татуировки с характером — создаём с страстью и точностью. Каждый проект — индивидуальная история, созданная специально для тебя.">Tatuaże z charakterem — tworzone z pasją i precyzją. Każdy projekt to indywidualna historia, stworzona specjalnie dla Ciebie.</p>
